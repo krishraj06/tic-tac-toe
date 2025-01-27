@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Target Game</title>
+  <style>
+    #game-container {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      border: 1px solid black;
+      overflow: hidden;
+    }
+
+    #target {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Target Game</h1>
+  <div id="game-container">
+    <div id="target"></div>
+  </div>
+  <p>Score: <span id="score">0</span></p>
+
+  <script>
+    var target = document.getElementById("target");
+    var score = document.getElementById("score");
+    var gameContainer = document.getElementById("game-container");
+    var gameContainerWidth = gameContainer.clientWidth;
+    var gameContainerHeight = gameContainer.clientHeight;
+    var scoreValue = 0;
+
+    function updateScore() {
+      score.innerText = scoreValue;
+    }
+
+    function moveTarget() {
+      var randomX = Math.floor(Math.random() * (gameContainerWidth - 50));
+      var randomY = Math.floor(Math.random() * (gameContainerHeight - 50));
+      target.style.left = randomX + "px";
+      target.style.top = randomY + "px";
+    }
+
+    function increaseScore() {
+      scoreValue++;
+      updateScore();
+    }
+
+    target.addEventListener("click", increaseScore);
+
+    setInterval(moveTarget, 1000); // Move target every 1 second
+  </script>
+</body>
+</html>

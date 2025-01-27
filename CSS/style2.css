@@ -1,0 +1,22 @@
+.container {
+border: solid 1px black;
+}
+.container {
+    height: 50px;
+    width: 200px;
+
+}
+.first{
+    float: left;
+    border: solid 3px red;
+
+}
+.second{
+float: right;
+border: solid 3px pink;
+
+}
+.third{
+    float: left;
+    border: solid 3px blue;
+}
